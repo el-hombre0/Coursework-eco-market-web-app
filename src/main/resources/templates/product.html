@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> <!--Подключение шаблинизатора Thymeleaf-->
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+            type="image/png"
+            sizes="16x16"
+            rel="icon"
+            href="images/favicon.png"
+    />
+    <!-- Иконки для бургер меню на мобильных устройствах -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+
+    <title>Эко Маркет</title>
+</head>
+<body>
+<header>
+    <nav class="topnav" id="myTopnav">
+        <a href="#" class="active">Эко Маркет</a>
+        <a href="bioProd.html">Био продукты</a>
+        <a href="farmProd.html">Фермерская продукция</a>
+        <a href="vegans.html">Вегетарианцам и веганам</a>
+        <a href="account.html">Личный кабинет</a>
+        <a href="cart.html">Корзина</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </nav>
+</header>
+<main>
+    <div class="products">
+        <!-- Сколько типов продуктов, столько классов и будет создано -->
+        <div class="newproducts" th:each="element : ${map}"><!--Цикл из шаблонизатора Thymeleaf-->
+            <div id="newproducts_caption">
+                <p th:text="${element.key.name}"></p> <!--Вывод названия продукта-->
+            </div>
+            <div>
+                <div class="product" th:each="prod : ${element.value}">
+                    <img class="triangle" src="images/new-product.png" alt="new" th:if="${prod.newProduct==true}" />
+                    <img class="triangle" src="images/hot-product.png" alt="new" th:if="${prod.hotProduct==true}" />
+
+                    <img class="photo" th:src="@{'/images/' + ${prod.image}}" alt="" /> <!--Получаем индивидуальное для каждого продукта изображение-->
+                    <div class="product_name" th:text="${prod.name}">
+
+                    </div>
+                    <div class="product_price">
+                        <span th:text="${prod.price}" ></span>руб.
+                        <span class="product_old_price" th:if="${prod.oldPrice} != ${prod.price}">
+                  <span th:text="${prod.oldPrice}" ></span>руб.
+                </span>
+                    </div>
+                </div>
+                <a href="">
+                    <div class="buy">
+                        Buy now
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+<footer></footer>
+</body>
+<script src="js/main.js"></script>
+</html>
