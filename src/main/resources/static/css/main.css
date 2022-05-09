@@ -66,35 +66,107 @@ body {
   }
 }
 
-main{
-  height: 100vh;
+main {
+  /* height: 100vh; */
   /*background-image: url("../images/headerback.jpg");*/
-  background: linear-gradient(#ffffff, #5a9a62);
-  background-attachment: fixed;
   background-size: cover;
-  background-position: center;
+  background: linear-gradient(#ffffff, #7fc24c) fixed center;
 }
 
-.products{
+.products {
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
   justify-content: space-around;
-
 }
-.photo{
+.product {
+  padding: 2em;
+  background-color: #fff;
+  /*border: 1px solid #ab3b3b;*/
+  border-radius: 20px;
+  margin: 3em;
+}
+.photo {
   max-width: 100%;
   height: auto;
 }
 
-.newproducts{
-  background-color: #fff;
-  border: 1px solid #000;
+.newproducts {
+  background-color: #4caf50;
+  /*border: 1px solid #000;*/
   border-radius: 20px;
-  max-width: 20em;
+  margin-top: 3em;
+  /*max-height: fit-content;*/
+  max-width: 25em;
 }
 
-.triangle{
-  position: absolute;
+.newproducts_caption {
+  font-size: 24px;
+  color: white;
+  font-style: italic;
+  padding: 1.5em 1.5em;
+}
+
+.triangle {
+  position: relative;
   right: 0;
+  top: 0;
 }
 
+.product_name {
+  text-align: center;
+  font-size: 18px;
+  color: black;
+}
+
+.product_price {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 2em;
+  color: red;
+}
+.product_old_price {
+  font-size: 14px;
+  color: #666666;
+  text-decoration: line-through;
+}
+
+footer {
+  padding: 4em;
+  background-color: #545454;
+  color: white;
+  font-size: 20px;
+  line-height: 1em;
+}
+
+footer a{
+  text-decoration: none;
+  color: white;
+}
+
+a.buttonBin {
+  position: relative;
+  display: inline-block;
+  width: 10em;
+  height: 2.5em;
+  line-height: 2.5em;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 -1px 1px #777;
+  color: #fff;
+  outline: none;
+  border: 2px solid #F64C2B;
+  border-radius: 5px;
+  box-shadow: 0 0 0 60px rgba(0,0,0,0) inset, .1em .1em .2em #800;
+  background: linear-gradient(#FB9575, #F45A38 48%, #EA1502 52%, #F02F17);
+}
+a.buttonBin:active {
+  top: .1em;
+  left: .1em;
+  box-shadow: 0 0 0 60px rgba(0,0,0,.05) inset;
+}
+
+a.buttonBin:hover{
+  width: 10.2em;
+  height: 2.7em;
+}
