@@ -66,9 +66,22 @@ body {
   }
 }
 
+.number{
+  width: 15em;
+  background-color: #4caf50;
+  border-radius: 20px;
+  font-size: 18px;
+  padding: 1em;
+  margin-left: 5em;
+  line-height: 150%;
+}
+
+.number a{
+  text-decoration: none;
+  color: white;
+}
+
 main {
-  /* height: 100vh; */
-  /*background-image: url("../images/headerback.jpg");*/
   background-size: cover;
   background: linear-gradient(#ffffff, #7fc24c) fixed center;
 }
@@ -91,8 +104,6 @@ main {
 .product_data {
   background-color: #ffffff;
   margin: 2em 5em 2em 0;
-  margin-top: 2em;
-  margin-right: 5em;
   padding: 5em;
   border: 0.3em solid #54cc49;
 }
