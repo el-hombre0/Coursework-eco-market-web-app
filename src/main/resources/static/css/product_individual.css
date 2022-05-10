@@ -73,78 +73,61 @@ main {
   background: linear-gradient(#ffffff, #7fc24c) fixed center;
 }
 
-.products {
+.products_individ {
   display: flex;
-  /* flex-direction: row; */
-  justify-content: space-around;
-}
-.product {
-  padding: 2em;
-  background-color: #fff;
-  /*border: 1px solid #ab3b3b;*/
-  border-radius: 20px;
-  margin: 3em;
-}
-.photo {
-  max-width: 100%;
-  height: auto;
 }
 
-.newproducts {
-  background-color: #4caf50;
-  /*border: 1px solid #000;*/
-  border-radius: 20px;
-  margin-top: 3em;
-  /*max-height: fit-content;*/
-  max-width: 25em;
+.product_photo {
+  background-color: #ffffff;
+  margin: 2em 13.2em;
+  padding: 1em;
+  border: 0.3em solid #54cc49;
 }
 
-.newproducts_caption {
-  font-size: 24px;
-  color: white;
-  font-style: italic;
-  padding: 1.5em 1.5em;
+.product_photo .photo {
+  width: 30em;
 }
 
-.triangle {
-  position: relative;
-  right: 0;
-  top: 0;
+.product_data {
+  background-color: #ffffff;
+  margin: 2em 5em 2em 0;
+  margin-top: 2em;
+  margin-right: 5em;
+  padding: 5em;
+  border: 0.3em solid #54cc49;
 }
 
 .product_name {
-  text-align: center;
-  font-size: 18px;
-  color: black;
+  font-size: 28px;
 }
 
 .product_price {
-  font-size: 18px;
-  font-weight: bold;
-  padding: 2em;
+  text-align: right;
+  padding: 1em 0;
+  font-size: 20px;
   color: red;
 }
-.product_old_price {
-  font-size: 14px;
+
+.product_old-price {
   color: #666666;
   text-decoration: line-through;
+  font-style: italic;
 }
 
-footer {
-  padding: 4em;
-  background-color: #545454;
-  color: white;
+#product_describe_caption {
+  font-size: 24px;
+  text-decoration: underline;
+}
+
+#description {
+  margin: 0.5em 0;
   font-size: 20px;
-  line-height: 1em;
+  text-align: justify;
 }
 
-footer a {
-  text-decoration: none;
-  color: white;
-}
-
-a.buttonBin {
+.buttonBin {
   position: relative;
+  margin-top: 1em;
   display: inline-block;
   width: 10em;
   height: 2.5em;
@@ -160,13 +143,22 @@ a.buttonBin {
   box-shadow: 0 0 0 60px rgba(0, 0, 0, 0) inset, 0.1em 0.1em 0.2em #800;
   background: linear-gradient(#fb9575, #f45a38 48%, #ea1502 52%, #f02f17);
 }
-a.buttonBin:active {
+
+.buttonBin {
   top: 0.1em;
   left: 0.1em;
   box-shadow: 0 0 0 60px rgba(0, 0, 0, 0.05) inset;
 }
 
-a.buttonBin:hover {
-  width: 10.2em;
-  height: 2.7em;
+footer {
+  padding: 4em;
+  background-color: #545454;
+  color: white;
+  font-size: 20px;
+  line-height: 1em;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
 }

@@ -1,52 +1,96 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Эко Маркет</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-    <div class="container">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ЭкоМаркет</title>
+    <link
+      type="image/png"
+      sizes="16x16"
+      rel="icon"
+      href="images/icons8-растение-16.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav class="topnav" id="myTopnav">
+        <a th:href="@{/}" class="active">ЭкоМаркет</a>
+        <a href="#bioProd.html">Био продукты</a>
+        <a href="#farmProd.html">Фермерская продукция</a>
+        <a href="#vegans.html">Вегетарианцам и веганам</a>
+        <a th:href="@{/productTypeList}">Админ</a>
+        <a href="#cart.html">Корзина</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </nav>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+      <div class="container">
         <a class="navbar-brand" href="#">Типы продуктов</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/productTypeList}">Типы продуктов
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/productList}">Продукты</a>
-                </li>
-            </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" th:href="@{/productTypeList}"
+                >Типы продуктов
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/productList}">Продукты</a>
+            </li>
+          </ul>
         </div>
-    </div>
-</nav>
-<br><br>
-<table class="table">
-    <thead class="thead-dark">
-    <th> </th>
-    <th>Название</th>
-    <th>Новый продукт</th>
-    <th>Горячий продукт</th>
-    <th>Цена</th>
-    <th>Старая цена</th>
-    <th>Изображение</th>
-    <th>Описание</th>
-    <th>Тип продукта</th>
-    </thead>
-    <tbody>
-    <div th:each="prod, state : ${products}">
-<!--        <div th:each="name, new_product, hot_product, price, old_price, image, description, product_type_id, state : ${products}">-->
-        <tr>
+      </div>
+    </nav>
+    <br /><br />
+    <table class="table">
+      <thead class="thead-dark">
+        <th></th>
+        <th>Название</th>
+        <th>Новый продукт</th>
+        <th>Горячий продукт</th>
+        <th>Цена</th>
+        <th>Старая цена</th>
+        <th>Изображение</th>
+        <th>Описание</th>
+        <th>Тип продукта</th>
+      </thead>
+      <tbody>
+        <div th:each="prod, state : ${products}">
+          <!--        <div th:each="name, new_product, hot_product, price, old_price, image, description, product_type_id, state : ${products}">-->
+          <tr>
             <td th:text="${state.index + 1}"></td>
             <td th:text="${prod.name}"></td>
             <td th:text="${prod.newProduct}"></td>
@@ -57,15 +101,30 @@
             <td th:text="${prod.description}"></td>
             <td th:text="${prod.productType}"></td>
 
-
-            <td><a th:href="@{'/productList/edit/' + ${prod.id}}" class="badge badge-primary">Редактировать</a></td>
-            <td><a th:href="@{'/productList/delete/' + ${prod.id}}" class="badge badge-danger">Удалить</a></td>
+            <td>
+              <a
+                th:href="@{'/productList/edit/' + ${prod.id}}"
+                class="badge badge-primary"
+                >Редактировать</a
+              >
+            </td>
+            <td>
+              <a
+                th:href="@{'/productList/delete/' + ${prod.id}}"
+                class="badge badge-danger"
+                >Удалить</a
+              >
+            </td>
+          </tr>
+        </div>
+        <tr>
+          <td colspan="4" align="center">
+            <a th:href="@{/productList/add}" class="badge badge-success"
+              >Добавить</a
+            >
+          </td>
         </tr>
-    </div>
-    <tr>
-        <td colspan="4" align="center"><a th:href="@{/productList/add}" class="badge badge-success">Добавить</a></td>
-    </tr>
-    </tbody>
-</table>
-</body>
+      </tbody>
+    </table>
+  </body>
 </html>

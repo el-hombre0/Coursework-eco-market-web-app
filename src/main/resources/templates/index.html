@@ -6,20 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link type="image/png" sizes="16x16" rel="icon" href="images/favicon.png" />
-    <!-- Иконки для бургер меню на мобильных устройствах -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="css/main.css" />
-
-    <title>Эко Маркет</title>
+    <title>ЭкоМаркет</title>
   </head>
   <body>
     <header>
       <nav class="topnav" id="myTopnav">
-        <a th:href="@{/index}" class="active">Эко Маркет</a>
-        <a th:href="@{/bioProd}">Био продукты</a>
+        <a th:href="@{/}" class="active">ЭкоМаркет</a>
+        <a href="#bioProd.html">Био продукты</a>
         <a href="#farmProd.html">Фермерская продукция</a>
         <a href="#vegans.html">Вегетарианцам и веганам</a>
         <a th:href="@{/productTypeList}">Админ</a>
@@ -39,7 +37,11 @@
             <!--Вывод названия продукта-->
           </div>
           <div>
-            <div class="product" th:each="prod : ${element.value}">
+            <div
+              class="product"
+              th:each="prod : ${element.value}"
+              th:attr="onclick=|window.location.href='product?id=' + ${prod.id}|"
+            >
               <img
                 class="triangle"
                 src="images/new-product.png"
@@ -61,7 +63,7 @@
               <!--Получаем индивидуальное для каждого продукта изображение-->
               <div class="product_name" th:text="${prod.name}"></div>
               <div class="product_price">
-                <span th:text="${prod.price}"></span> руб.
+                <span th:text="${prod.price}"></span> руб.<br />
                 <span
                   class="product_old_price"
                   th:if="${prod.oldPrice} != ${prod.price}"
@@ -77,7 +79,8 @@
     </main>
     <footer>
       <p>
-        <a href="#"> Главная </a> | <a href="#"> Наши поставщики </a> | <a href="#"> О нас </a> |
+        <a th:href="@{/}"> Главная </a> | <a href="#"> Наши поставщики </a> |
+        <a href="#"> О нас </a> |
         <a href="#">Контакты</a>
       </p>
       <p>Copyright © 2022. Интернет магазин ЭКОМАРКЕТ</p>
