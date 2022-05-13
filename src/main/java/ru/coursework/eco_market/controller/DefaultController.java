@@ -108,4 +108,8 @@ public class DefaultController {
         model.addAttribute("product", product);
         return "productForm";
     }
+    @GetMapping("/cart")
+    public String cart(Model model){
+        return "cart";
+    }
 }
