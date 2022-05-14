@@ -28,9 +28,15 @@
       </nav>
     </header>
     <main>
+
       <div class="call-us">
         <div class="number">
           <a href="tel:+7 (999) 888 77 66">Позвоните нам!<br/>+7-(999)-888-77-66</a>
+        </div>
+        <div class="logout">
+          <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+          </form>
         </div>
       </div>
       <div class="products">
