@@ -66,7 +66,8 @@ body {
   }
 }
 
-.number{
+/*Телефонный номер для связи*/
+.number {
   width: 15em;
   background-color: #4caf50;
   border-radius: 20px;
@@ -76,18 +77,21 @@ body {
   line-height: 150%;
 }
 
-.number a{
+.number a {
   color: white;
 }
 
-.logout{
+
+/*Кнопка выхода из аккаунта*/
+.logout {
   display: inline;
   width: 4em;
   float: right;
   margin-right: 5em;
 }
 
-.logout, .logout input{
+.logout,
+.logout input {
   font-size: 18px;
   color: #fff;
   background-color: #4caf50;
@@ -95,26 +99,36 @@ body {
   padding: 0.3em;
 }
 
-.logout input:hover{
+.logout input:hover {
   text-decoration: underline;
 }
 
 
+/*Основной блок*/
 main {
   background-size: cover;
   background: linear-gradient(#ffffff, #7fc24c) fixed center;
 }
 
+/*Типы продуктов*/
 .products {
   display: flex;
   justify-content: space-around;
 }
+
+/*Каждый продукт*/
 .product {
   padding: 2em;
   background-color: #fff;
   border-radius: 20px;
   margin: 3em;
 }
+
+.product:hover{
+  background-color: #bebebe;
+}
+
+/*Изображение продукта*/
 .photo {
   max-width: 100%;
   height: auto;
@@ -198,5 +212,54 @@ a.buttonBin:hover {
   background: linear-gradient(#d97e63, #d54c2f 48%, #cc1102 52%, #d02814);
   box-shadow: 0 0 0 60px rgba(0, 0, 0, 0) inset, 0.1em 0.1em 0.2em #720000;
   border: 2px solid #c23921;
+}
 
+/*Список пользователей*/
+.wrapper-user-list h1{
+  font-size: 20px;
+  text-align: center;
+  margin: 2em auto;
+}
+
+#user-list{
+  text-align: center;
+  margin: 2em auto;
+  min-width: 30em;
+  border: 2px solid black;
+  font-size: 14px;
+}
+
+#user-list thead{
+  background-color: #7fc24c;
+  font-size: 20px;
+  height: 5em;
+}
+
+#user-list tr{
+  height: 3em;
+}
+
+#user-list tr td{
+  padding: 0.3em;
+}
+
+/*Страница редактирования пользователя*/
+
+.wrapper-user-edit h1{
+  font-size: 20px;
+  text-align: center;
+  margin: 2em auto;
+}
+#user-edit{
+  padding: 1.5em;
+  font-size: 14px;
+  margin: 0 auto;
+}
+
+#user-edit input{
+  margin: 1.5em auto;
+}
+
+#user-edit label{
+  margin: 1.5em auto;
 }

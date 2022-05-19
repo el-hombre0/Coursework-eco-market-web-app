@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
-<head>
+  <head>
     <title>ЭкоМаркет-Авторизация</title>
     <link type="image/png" sizes="16x16" rel="icon" href="images/favicon.png" />
     <link rel="stylesheet" href="css/login.css" />
-</head>
-<body>
+  </head>
+  <body>
     <div class="wrapper">
-        <div class="header">
-            <h1>Авторизация</h1>
+      <div class="header">
+        <h1>Авторизация</h1>
+      </div>
+      <div class="wrong-log" th:if="${param.error}">
+        Неправильный логин или пароль
+      </div>
+      <div class="outed" th:if="${param.logout}">Вы вышли</div>
+      <form th:action="@{/login}" method="post">
+        <div>
+          <label> Логин : <input type="text" name="username" /> </label>
         </div>
-        <div class="wrong-log" th:if="${param.error}">
-            Неправильный логин или пароль
+        <div>
+          <label> Пароль: <input type="password" name="password" /> </label>
         </div>
-        <div class="outed" th:if="${param.logout}">
-            Вы вышли
-        </div>
-        <form th:action="@{/login}" method="post">
-            <div><label> Логин : <input type="text" name="username"/> </label></div>
-            <div><label> Пароль: <input type="password" name="password"/> </label></div>
-            <div><input id="submit" type="submit" value="Войти"/></div>
-        </form>
-        <div class="first-time">
-            <a th:href="@{/registration}">Впервые тут? Зарегистрируйтесь!</a>
-        </div>
+        <div><input id="submit" type="submit" value="Войти" /></div>
+      </form>
+      <div class="first-time">
+        <a th:href="@{/registration}">Впервые тут? Зарегистрируйтесь!</a>
+      </div>
     </div>
-</body>
+  </body>
 </html>

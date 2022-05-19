@@ -14,39 +14,40 @@
     <title>ЭкоМаркет-Список пользователей</title>
 </head>
 <body>
-<header>
-    <nav class="topnav" id="myTopnav">
-        <a th:href="@{/}" class="active">ЭкоМаркет</a>
-        <a href="#bioProd.html">Био продукты</a>
-        <a href="#farmProd.html">Фермерская продукция</a>
-        <a href="#vegans.html">Вегетарианцам и веганам</a>
-        <a th:href="@{/productTypeList}">Админ</a>
-        <a th:href="@{/user}">Пользователи</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </nav>
-</header>
-Список пользователей
-<table>
-    <thead>
-    <tr>
-        <th>Логин</th>
-        <th>Роль</th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="user : ${users}">
-        <td th:text="${user.username}"></td>
-        <td th:text="${user.roles}"></td>
-        <td><a th:href="@{'/user/' + ${user.id}}">Edit</a> </td>
-<!--        th:each="prod : ${element.value}"-->
-<!--        th:attr="onclick=|window.location.href='product?id=' + ${prod.id}|"-->
-<!--        <td><a th:attr="onclick=|window.location.href='user?id=' + ${user.id}|">Edit</a></td>-->
-
-    </tr>
-    </tbody>
-</table>
+    <header>
+        <nav class="topnav" id="myTopnav">
+            <a th:href="@{/}" class="active">ЭкоМаркет</a>
+            <a href="#bioProd.html">Био продукты</a>
+            <a href="#farmProd.html">Фермерская продукция</a>
+            <a href="#vegans.html">Вегетарианцам и веганам</a>
+            <a th:href="@{/productTypeList}">Админ</a>
+            <a th:href="@{/user}">Пользователи</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </nav>
+    </header>
+    <main>
+        <div class="wrapper-user-list">
+            <h1>Список пользователей</h1>
+            <table id="user-list">
+                <thead>
+                    <tr>
+                        <th>Логин</th>
+                        <th>Роль</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="user : ${users}">
+                        <td th:text="${user.username}"></td>
+                        <td th:text="${user.roles}"></td>
+                        <td><a th:href="@{'/user/' + ${user.id}}">Edit</a> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
 </body>
+<script src="js/main.js"></script>
 </html>

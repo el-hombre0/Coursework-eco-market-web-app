@@ -1,4 +1,4 @@
-/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+/* Переключение между добавлением и удалением "отзывчивого" класса в topnav, когда пользователь нажимает на значок */
 function myFunction() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
