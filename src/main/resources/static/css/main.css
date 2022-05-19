@@ -1,6 +1,5 @@
 @import "null-style.css";
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-/* Add a black background color to the top navigation */
 body {
   font-family: "Roboto", sans-serif;
 }
@@ -9,7 +8,7 @@ body {
   overflow: hidden;
 }
 
-/* Style the links inside the navigation bar */
+/* Стиль для ссылок внутри навигационного меню */
 .topnav a {
   float: left;
   display: block;
@@ -21,24 +20,24 @@ body {
   font-size: 1.7em;
 }
 
-/* Change the color of links on hover */
+/* Меняем цвет ссылок при наведении */
 .topnav a:hover {
   background-color: #fff;
   color: rgb(74, 180, 234);
 }
 
-/* Add an active class to highlight the current page */
+/* Добавление активного класса, чтобы главная страница подсвечивалась */
 .active {
   background-color: #4caf50;
   color: white;
 }
 
-/* Hide the link that should open and close the topnav on small screens */
+/* Прячим ссылку, которая должна открывать и закрывать topnav на маленьких экранах */
 .topnav .icon {
   display: none;
 }
 
-/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+/* Когда экран меньше 600 пикселей прячим все ссылки, кроме первой (дом) Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {
     display: none;
@@ -49,7 +48,8 @@ body {
   }
 }
 
-/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+/* Класс responsive добавляется в topnav с помощью JS, когда юзер нажимает на значок, позволяет topnav хорошо выглядеть
+на небольших экранах (отображать ссылки вертикально, а не горизонтально). */
 @media screen and (max-width: 600px) {
   .topnav.responsive {
     position: relative;
@@ -77,9 +77,28 @@ body {
 }
 
 .number a{
-  text-decoration: none;
   color: white;
 }
+
+.logout{
+  display: inline;
+  width: 4em;
+  float: right;
+  margin-right: 5em;
+}
+
+.logout, .logout input{
+  font-size: 18px;
+  color: #fff;
+  background-color: #4caf50;
+  border-radius: 20px;
+  padding: 0.3em;
+}
+
+.logout input:hover{
+  text-decoration: underline;
+}
+
 
 main {
   background-size: cover;
@@ -176,6 +195,8 @@ a.buttonBin:active {
 }
 
 a.buttonBin:hover {
-  width: 10.2em;
-  height: 2.7em;
+  background: linear-gradient(#d97e63, #d54c2f 48%, #cc1102 52%, #d02814);
+  box-shadow: 0 0 0 60px rgba(0, 0, 0, 0) inset, 0.1em 0.1em 0.2em #720000;
+  border: 2px solid #c23921;
+
 }

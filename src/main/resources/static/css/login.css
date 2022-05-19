@@ -1,0 +1,71 @@
+@import "null-style.css";
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+body {
+    font-family: "Roboto", sans-serif;
+    background: linear-gradient(#ffffff, #7fc24c) fixed center;
+    height: 100%;
+}
+.wrapper{
+    border-radius: 20px;
+    background-color: rgba(119, 119, 119, 0.3);
+    padding: 2em;
+    margin: 5% auto;
+    width: 32em;
+}
+.header{
+    text-align: center;
+    font-size: 30px;
+    color: #000000;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+.wrong-log{
+    /*text-align: center;*/
+    margin: 0 auto;
+    color: #a60000;
+    width: fit-content;
+    font-size: 20px;
+    background-color: rgba(203, 70, 46, 0.3);
+}
+
+.outed{
+    color: #666666;
+    font-size: 20px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 1.5em 0;
+}
+
+form{
+    margin: 0 auto;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+}
+
+#submit{
+    background-color: #66c266;
+    font-size: 20px;
+    color: black;
+    margin: 1.5em;
+    padding: 0.3em;
+    border-radius: 20px;
+}
+#submit:hover{
+    text-decoration: underline;
+}
+
+.first-time{
+    text-align: center;
+    margin: 0 auto;
+}
+.first-time a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.first-time:hover{
+    text-decoration: underline;
+}
