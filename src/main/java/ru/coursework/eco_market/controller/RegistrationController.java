@@ -15,24 +15,25 @@ import java.util.Map;
 public class RegistrationController {
 
     @Autowired
-    private UserRepo userRepo;
+    private UserRepo userRepo; // Репозиторий со списком пользователей
 
     @GetMapping("/registration")
     public String registration(){
         return "registration";
-    }
+    } // Возвращает view для регистрации
     @PostMapping("/registration")
-    public String addUser(User user, Map<String, Object> model){
-        User userFromDb = userRepo.findByUsername(user.getUsername());
+    public String addUser(User user, Map<String, Object> model){ // Map для модели для вывода сообщения
+        User userFromDb = userRepo.findByUsername(user.getUsername()); // Объявление БД
 
-        if (userFromDb != null){
-            model.put("message", "User exists!");
+        if (userFromDb != null){ // Если пользователь есть в БД, то есть уже зарегистрирован, то сообщаем об этом через модель
+            model.put("message", "User exists!"); // Сообщение для пользователя
             return "registration";
         }
-
-        user.setActive(true);
-        user.setRoles(Collections.singleton(Role.USER));
-        userRepo.save(user);
-        return "redirect:/login";
+        // Обработка нового пользователя
+        user.setActive(true); // Новый и сразу активный пользователь
+        user.setRoles(Collections.singleton(Role.USER)); // Тк на вход ожидается коллекция в виде set, а у нас только одно
+        // значение, то используем шаблон, создающий set с одним значением
+        userRepo.save(user); // Сохранение состояния пользователя
+        return "redirect:/login"; // При успешной авторизации переброска на страницу логина
     }
 }

@@ -16,9 +16,9 @@ import javax.sql.DataSource;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true) // Для наличия возможнсти редактирования юзеров только у админа
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter { // Класс при старте приложения настривает систему авторизации
     @Autowired
-    private DataSource dataSource;
+    private DataSource dataSource; // Чтобы мог входить в БД и искать роли пользователя
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -38,10 +38,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
-                .passwordEncoder(NoOpPasswordEncoder.getInstance())
-                .usersByUsernameQuery("select username, password, active from user where username=?")
-                .authoritiesByUsernameQuery("select u.username, ur.roles from user u inner join user_role ur on u.id = ur.user_id where u.username=?"); // получить список пользователей с их ролями
-
+                .passwordEncoder(NoOpPasswordEncoder.getInstance())// Шифрование паролей, чтобы не хранились в вном виде
+                .usersByUsernameQuery("select username, password, active from user where username=?") // Запрос - система ищет пользователя по его имени
+                .authoritiesByUsernameQuery("select u.username, ur.roles from user u inner join user_role ur on u.id = ur.user_id where u.username=?"); // Запрос для получения списка пользователей с их ролями
+                // Из таблицы user и присоединенной к ней таблице user_role через поля user.id и id выбираем поля username и и мя роли
     }
     @Override
     public void configure(WebSecurity web) {

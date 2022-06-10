@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.coursework.eco_market.entity.ProductType;
 
 @Repository
-public interface ProductTypeRepository extends CrudRepository<ProductType, Long> {
+public interface ProductTypeRepository extends CrudRepository<ProductType, Long> { // DAO, CRUD - create, read, update, delete
 }

@@ -7,16 +7,17 @@ import java.util.Set;
 @Table(name="user")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO) // Автоматическая гинерация ID для пользователей
     private Long id;
     private String username;
     private String password;
-    private boolean active;
+    private boolean active; // Признак активности
 
-    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
-    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
+    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER) // Жадная подгрузка(при запросе пользователя все его роли сразу подгружаются)
+    // Для малого числа данных - ускоряет работу, но подъедает памать
+    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id")) // Данное поле хранится в отдельной табице, для которой не описывался mapping
     @Enumerated(EnumType.STRING)
-    private Set<Role> roles;
+    private Set<Role> roles; // Поле для ролей одного пользователя, тк их может быть несколько
 
     public Long getId() {
         return id;
