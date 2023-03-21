@@ -23,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter { // Кла�
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()// Включение авторизации
-                    .antMatchers("/", "/registration", "/product*", "/cart").permitAll() // Доступ доступен всем
+                    .antMatchers("/", "/registration", "/product*", "/cart", "/api/*").permitAll() // Доступ доступен всем
                     .anyRequest().authenticated()
                 .and()
                     .formLogin()
